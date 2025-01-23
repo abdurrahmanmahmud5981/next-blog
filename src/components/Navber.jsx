@@ -1,6 +1,6 @@
 "use client"
 import Link from "next/link";
-import {RegisterLink, LoginLink} from "@kinde-oss/kinde-auth-nextjs/components";
+import { LoginLink} from "@kinde-oss/kinde-auth-nextjs/components";
 
 
 const Navber = () => {
