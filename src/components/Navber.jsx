@@ -34,7 +34,7 @@ const Navber = async () => {
                 className="w-8 h-8 rounded-full"
               />
               </Link>
-              <LogoutLink className="border px-4 py-1.5 rounded-md">
+              <LogoutLink prefetch={false}  className="border px-4 py-1.5 rounded-md">
                 Logout
               </LogoutLink>
             </div>
