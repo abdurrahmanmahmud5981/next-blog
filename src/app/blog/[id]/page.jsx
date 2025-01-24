@@ -7,7 +7,7 @@ const BlogDetails = async ({ params }) => {
     .then((response) => response.json())
     .catch((error) => console.error("Error:", error));
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto px-3">
       <div className="card bg-base-100 shadow max-w-4xl mx-auto border-2 border-base-200">
         <div className="card-body">
             <h1 className="card-title text-2xl">Blog Details Of ID: {data?.id}</h1>
