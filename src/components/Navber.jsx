@@ -7,7 +7,6 @@ const Navber = async () => {
   const { isAuthenticated,getUser } = getKindeServerSession();
   const isUserAuthenticated = await isAuthenticated();
   const user = await getUser();
-  console.log(isUserAuthenticated);
   return (
     <div className="container mx-auto mb-12">
       <div className="navbar ">
@@ -15,9 +14,12 @@ const Navber = async () => {
           <h3 className=" font-bold text-xl">Next Blog</h3>
         </div>
         <div className="flex-none">
-          <div className="flex items-center gap-4">
-            <Link className="border px-3 py-1.5 rounded-md md:mr-8" href={"/"}>
+          <div className="flex items-center gap-2">
+            <Link className="border px-4 py-1.5 rounded-md" href={"/"}>
               Home
+            </Link>
+            <Link className="sm:block hidden border px-4 py-1.5 rounded-md" href={"/profile"}>
+              Profile
             </Link>
               <div>
           {isUserAuthenticated ? (
@@ -32,16 +34,16 @@ const Navber = async () => {
                 className="w-8 h-8 rounded-full"
               />
               </Link>
-              <LogoutLink className="border px-3 py-1.5 rounded-md">
+              <LogoutLink className="border px-4 py-1.5 rounded-md">
                 Logout
               </LogoutLink>
             </div>
           ) : (
-            <div className="flex gap-5">
-              <LoginLink className="border px-3 py-1.5 rounded-md">
+            <div className="flex gap-2">
+              <LoginLink className="border px-4 py-1.5 rounded-md">
                 Login
               </LoginLink>
-              <RegisterLink className="border px-3 py-1.5 rounded-md">
+              <RegisterLink className="border px-4 py-1.5 rounded-md">
                 Register
               </RegisterLink>
             </div>
