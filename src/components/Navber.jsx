@@ -1,9 +1,13 @@
-"use client"
 import Link from "next/link";
-import { LoginLink} from "@kinde-oss/kinde-auth-nextjs/components";
+import { LoginLink, RegisterLink } from "@kinde-oss/kinde-auth-nextjs/components";
+import { LogoutLink } from "@kinde-oss/kinde-auth-nextjs/components";
+import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 
-
-const Navber = () => {
+const Navber = async () => {
+  const { isAuthenticated,getUser } = getKindeServerSession();
+  const isUserAuthenticated = await isAuthenticated();
+  const user = await getUser();
+  console.log(isUserAuthenticated);
   return (
     <div className="container mx-auto mb-12">
       <div className="navbar ">
@@ -12,9 +16,39 @@ const Navber = () => {
         </div>
         <div className="flex-none">
           <div className="flex items-center gap-4">
-            <Link className="border px-3 py-1.5 rounded-md" href={"/"}>Home</Link>
-            <Link className="border px-3 py-1.5 rounded-md" href={"/profile"}>Profile</Link>
-            <LoginLink className="border px-3 py-1.5 rounded-md">Login</LoginLink>
+            <Link className="border px-3 py-1.5 rounded-md" href={"/"}>
+              Home
+            </Link>
+            <Link className="border px-3 py-1.5 rounded-md" href={"/profile"}>
+              Profile
+            </Link>
+              <div>
+          {isUserAuthenticated ? (
+            <div className="flex items-center space-x-4">
+              {/* <span>Welcome, {user.given_name}</span> */}
+              <img
+                src={
+                  user.picture ||
+                  "https://i.ibb.co.com/BKsPZDR/Himalayan-Bliss-Trek.jpg"
+                } // Fallback to default image
+                alt={ "User"}
+                className="w-8 h-8 rounded-full"
+              />
+              <LogoutLink className="border px-3 py-1.5 rounded-md">
+                Logout
+              </LogoutLink>
+            </div>
+          ) : (
+            <div className="flex gap-5">
+              <LoginLink className="border px-3 py-1.5 rounded-md">
+                Login
+              </LoginLink>
+              <RegisterLink className="border px-3 py-1.5 rounded-md">
+                Register
+              </RegisterLink>
+            </div>
+          )}
+        </div>
           </div>
         </div>
       </div>

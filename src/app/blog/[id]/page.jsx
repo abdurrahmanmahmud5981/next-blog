@@ -6,7 +6,6 @@ const BlogDetails = async ({ params }) => {
   const data = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
     .then((response) => response.json())
     .catch((error) => console.error("Error:", error));
-//   console.log(data);
   return (
     <div className="container mx-auto">
       <div className="card bg-base-100 shadow max-w-4xl mx-auto border-2 border-base-200">
