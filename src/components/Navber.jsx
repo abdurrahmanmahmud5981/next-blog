@@ -16,24 +16,22 @@ const Navber = async () => {
         </div>
         <div className="flex-none">
           <div className="flex items-center gap-4">
-            <Link className="border px-3 py-1.5 rounded-md" href={"/"}>
+            <Link className="border px-3 py-1.5 rounded-md mr-8" href={"/"}>
               Home
-            </Link>
-            <Link className="border px-3 py-1.5 rounded-md" href={"/profile"}>
-              Profile
             </Link>
               <div>
           {isUserAuthenticated ? (
             <div className="flex items-center space-x-4">
-              {/* <span>Welcome, {user.given_name}</span> */}
+              <Link href={"/profile"}>
               <img
                 src={
                   user.picture ||
                   "https://i.ibb.co.com/BKsPZDR/Himalayan-Bliss-Trek.jpg"
                 } // Fallback to default image
-                alt={ "User"}
+                alt={user.first_name || "User"}
                 className="w-8 h-8 rounded-full"
               />
+              </Link>
               <LogoutLink className="border px-3 py-1.5 rounded-md">
                 Logout
               </LogoutLink>
