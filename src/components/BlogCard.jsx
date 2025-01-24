@@ -5,8 +5,8 @@ const BlogCard = ({ card = {} }) => {
   console.log("BlogCard");
   console.log(card);
   return (
-    <div className="card bg-base-100  shadow flex-grow">
-      <div className="card-body">
+    <div className="card bg-base-100 rounded-md border  flex-grow">
+      <div className="card-body p-4">
         <h2 className="card-title flex-grow">
           {card?.title.substring(0, 20)}...
         </h2>

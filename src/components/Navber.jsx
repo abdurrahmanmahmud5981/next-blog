@@ -16,7 +16,7 @@ const Navber = async () => {
         </div>
         <div className="flex-none">
           <div className="flex items-center gap-4">
-            <Link className="border px-3 py-1.5 rounded-md mr-8" href={"/"}>
+            <Link className="border px-3 py-1.5 rounded-md md:mr-8" href={"/"}>
               Home
             </Link>
               <div>

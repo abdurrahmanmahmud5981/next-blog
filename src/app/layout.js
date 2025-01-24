@@ -25,7 +25,7 @@ export default function RootLayout({ children }) {
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
           <header>
-            <nav className="bg-gray-50 px-8">
+            <nav className="bg-gray-50 sm:px-8">
               <Navber />
             </nav> 
           </header>
